@@ -44,16 +44,16 @@ G_Increase = 0                                      'Needs to start at 0 to add 
 G_Decrease = 0                                      ' "   "
 G_Total_Volume = 0                                  ' "   " 
 
-lastRow = ws.Cells(Rows.Count, "A").End(xlUp).Row                          'Set the last row used in the script.
+lastRow = ws.Cells(Rows.Count, "A").End(xlUp).Row                          'Set the last row used in the script.        Note: Natural helped me with the lastRow.  Source: Natural
 For i = 2 To lastRow                                                       'Set the parameters for i
-Total_Stock_Volume = Total_Stock_Volume + ws.Range("G" & i).Value          'Adding the Total stock volumes up.                
+Total_Stock_Volume = Total_Stock_Volume + ws.Range("G" & i).Value          'Adding the Total stock volumes up.                Note: Natural helped me with this.  Source: Natural
   If ws.Cells(i + 1, 1).Value <> ws.Cells(i, 1).Value Then                     'If each cell going down is not equal to the cell above it, then
     Ticker = ws.Cells(i, 1).Value                                              the Ticker changes to the new cells input.
     ws.Range("I" & Ticker_Summary).Value = Ticker                          'Where this information goes on the spreadsheet(Column "I")
     
     Yearly_Close = ws.Cells(i, 6).Value                              'Where to find the yearly close input.
     
-    Yearly_Change = (Yearly_Close - Yearly_Open)                     'Equation to find the Yearly Change.  Also used to find the Percentage Change.
+    Yearly_Change = (Yearly_Close - Yearly_Open)                     'Equation to find the Yearly Change.  Also used to find the Percentage Change.          Note: Natural helped me here as well.  Source: Natural
     If Yearly_Open = 0 Then                                          'This If statement is used to prevent any errors that would appear due to the number 0 appearing in the 
     Percentage_Change = 0                                            division equation used to find the Percentage Change.
     Else
@@ -67,7 +67,7 @@ Total_Stock_Volume = Total_Stock_Volume + ws.Range("G" & i).Value          'Addi
     
  
   
-    ws.Cells(Ticker_Summary, 12).Value = Total_Stock_Volume           'Where to place the Total Stock Volume Summation.
+    ws.Cells(Ticker_Summary, 12).Value = Total_Stock_Volume           'Where to place the Total Stock Volume Summation.          Note: Natural helped me through this process. Source: Natural
     If Percentage_Change > G_Increase Then                            'The equation to find the Greatest percentage increase.
         G_Increase = Percentage_Change                                
         G_Increase_Ticker = Ticker                                    
