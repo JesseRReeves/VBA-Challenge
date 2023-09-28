@@ -1,3 +1,7 @@
+Note: Natural Chan helped me through a lot of the harder coding here.  So props to him!  To make sure no plagiarism occurs I am adding him as a source.
+
+
+
 Sub Ticker()
                                       'Started out by making all my Variables.  Ticker is a string so we can string the different ticker names together within the code.
 Dim Ticker As String 
